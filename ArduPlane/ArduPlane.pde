@@ -1402,7 +1402,11 @@ static void update_flight_mode(void)
         steering_control.steering = steering_control.rudder = channel_rudder->pwm_to_angle();
         break;
         //roll: -13788.000,  pitch: -13698.000,   thr: 0.000, rud: -13742.000
-        
+
+    case BREAK_THROW:
+        breakthrow_run();
+        break;
+
     case INITIALISING:
         // handled elsewhere
         break;
@@ -1459,6 +1463,9 @@ static void update_navigation()
     case FLY_BY_WIRE_B:
     case CIRCLE:
         // nothing to do
+        break;
+    case BREAK_THROW:
+        update_breakthrow();
         break;
     }
 }

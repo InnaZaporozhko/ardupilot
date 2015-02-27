@@ -398,6 +398,11 @@ static void set_mode(enum FlightMode mode)
         guided_throttle_passthru = false;
         set_guided_WP();
         break;
+    case BREAK_THROW:
+        auto_throttle_mode = true;
+        guided_throttle_passthru = false;
+        breakthrow_init();
+        break;
     }
 
     // start with throttle suppressed in auto_throttle modes
