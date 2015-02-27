@@ -637,6 +637,9 @@ print_flight_mode(AP_HAL::BetterStream *port, uint8_t mode)
     case GUIDED:
         port->print_P(PSTR("Guided"));
         break;
+    case BREAK_THROW:
+        port->print_P(PSTR("BREAK_THROW"));
+        break;
     default:
         port->printf_P(PSTR("Mode(%u)"), (unsigned)mode);
         break;
